@@ -405,12 +405,13 @@ class DataMapper implements IteratorAggregate
 		}
 
 		// Load stored config settings by reference
-		foreach (DataMapper::$config as $config_key => &$config_value) {
-			// Only if they're not already set
-			if (!property_exists($this, $config_key)) {
-				$this->{$config_key} = $config_value;
-			}
-		}
+		// JOSIAS: 24-06-2018 COMENTADO POR QUE DABA ERROR ...DESCOMENTAR CUANDO SE PASE A PRODUCCION
+		// foreach (DataMapper::$config as $config_key => &$config_value) {
+		// 	// Only if they're not already set
+		// 	if (!property_exists($this, $config_key)) {
+		// 		$this->{$config_key} = $config_value;
+		// 	}
+		// }
 
 		// Load model settings if not in common storage
 		if (!isset(DataMapper::$common[$common_key])) {
@@ -658,8 +659,8 @@ class DataMapper implements IteratorAggregate
 
 		foreach (array_merge(array(APPPATH), $paths, self::$model_paths) as $path) {
 			// Prepare file
-			$file = $path . 'models/' . $class . EXT;
-
+			$file = $path . 'persistence/' . $class . EXT;
+			
 			// Check if file exists, require_once if it does
 			if (file_exists($file)) {
 				require_once($file);
@@ -670,7 +671,7 @@ class DataMapper implements IteratorAggregate
 		// if class not loaded, do a recursive search of model paths for the class
 		if (!class_exists($class)) {
 			foreach ($paths as $path) {
-				$found = DataMapper::recursive_require_once($class, $path . 'models');
+				$found = DataMapper::recursive_require_once($class, $path . 'persistence');
 				if ($found) {
 					break;
 				}
@@ -694,7 +695,7 @@ class DataMapper implements IteratorAggregate
 
 		foreach ($paths as $path) {
 			$path = rtrim($path, '/') . '/';
-			if (is_dir($path . 'models') && !in_array($path, self::$model_paths)) {
+			if (is_dir($path . 'persistence') && !in_array($path, self::$model_paths)) {
 				self::$model_paths[] = $path;
 			}
 		}
@@ -5622,7 +5623,7 @@ class DataMapper implements IteratorAggregate
 		}
 		if (isset($definition['model_path'])) {
 			$definition['model_path'] = rtrim($definition['model_path'], '/') . '/';
-			if (is_dir($definition['model_path'] . 'models') && !in_array($definition['model_path'], self::$model_paths)) {
+			if (is_dir($definition['model_path'] . 'persistence') && !in_array($definition['model_path'], self::$model_paths)) {
 				self::$model_paths[] = $definition['model_path'];
 			}
 		}

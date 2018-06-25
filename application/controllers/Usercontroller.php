@@ -12,7 +12,6 @@ class Usercontroller extends CI_Controller
             $user = new UserDomain();
             $user->setUsername('username');
             $user->setEmail('correo');
-
             UserWrapper::saveUser($user);
 
         } catch (Exception $e) {
@@ -26,11 +25,10 @@ class Usercontroller extends CI_Controller
     {
         try {
 
-            $user = new UserDomain();
-            $user->setUsername('username');
-            $user->setEmail('correo');
-
-            UserWrapper::saveUser($user);
+            // $user = new UserDomain();
+            // $user->setUsername('username');
+            // $user->setEmail('correo');
+            // UserWrapper::saveUser($user);
 
         } catch (Exception $e) {
             throw new Exception($e);

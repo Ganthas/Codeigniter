@@ -6,6 +6,11 @@ class UserPersistence extends DataMapper
     public $table = "users";
 
     public $validation = array();
+ 
+    public function __construct($id = null)
+    {
+        
+    }
     // public function _encrypt($field)
     // {
     //     if (!empty($this->{$field})) {

@@ -11,6 +11,7 @@ class UserWrapper
             $userPersistence = new UserPersistence();
             $userPersistence->username = $user->username;
             $userPersistence->email = $user->email;
+            $userPersistence->create = date('Y-m-d');
             $estado = $userPersistence->save();
 
         } catch (Exception $e) {

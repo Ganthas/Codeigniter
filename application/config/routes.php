@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -36,9 +36,10 @@
 | This route will tell the Router what URI segments to use if those provided
 | in the URL cannot be matched to a valid route.
 |
-*/
+ */
 
 $route['default_controller'] = "welcome";
+$route['usuario'] = "usercontroller/index";
 $route['404_override'] = '';
 
 

@@ -10,9 +10,9 @@ class Usercontroller extends CI_Controller
         try {
 
             $user = new UserDomain();
-            $user->setUsername('username');
+            $user->setUsername('usernkajshldjk');
             $user->setEmail('correo');
-            UserWrapper::saveUser($user);
+            UserWrapper::allUsers();
 
         } catch (Exception $e) {
             throw new Exception($e);

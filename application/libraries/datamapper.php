@@ -5879,9 +5879,9 @@ class DataMapper implements IteratorAggregate
 		}
 
 		// If there is a "matches" validation rule, match the field value with the other field value
-		foreach ($this->_field_tracking['matches'] as $field_name => $match_name) {
-			$this->{$field_name} = $this->stored->{$field_name} = $this->{$match_name};
-		}
+		// foreach ($this->_field_tracking['matches'] as $field_name => $match_name) {
+		// 	$this->{$field_name} = $this->stored->{$field_name} = $this->{$match_name};
+		// }
 	}
 
 	// --------------------------------------------------------------------

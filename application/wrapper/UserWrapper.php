@@ -19,4 +19,19 @@ class UserWrapper
         }
     }
 
+    public static function allUsers()
+    {
+        try {
+
+            $userPersistence = new UserPersistence();
+            $todos = $userPersistence->select();
+            foreach($todos as $aux){
+                Utils::debugArray($aux);
+
+            }
+        } catch (Exception $e) {
+            throw new Exception($e);
+        }
+    }
+
 }

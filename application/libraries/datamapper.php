@@ -2884,7 +2884,7 @@ class DataMapper implements IteratorAggregate
 			}
 		}
 		$this->db->select($select, $escape);
-
+		
 		// For method chaining
 		return $this;
 	}

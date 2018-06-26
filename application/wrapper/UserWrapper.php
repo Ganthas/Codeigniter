@@ -19,4 +19,18 @@ class UserWrapper
         }
     }
 
+    public static function getAllUsers()
+    {
+        try {
+
+            $userPersistence = new UserPersistence();
+            $allUsers = $userPersistence->get();
+
+        } catch (Exception $e) {
+            throw new Exception($e);
+        }
+
+        return $allUsers;
+    }
+
 }

@@ -9,6 +9,19 @@ class Usercontroller extends CI_Controller
     {
         try {
 
+            $data['users'] = UserWrapper::getAllUsers();
+
+        } catch (Exception $e) {
+            throw new Exception($e);
+        }
+
+        $this->layout->view('welcome_message', $data);
+    }
+
+    public function guardar()
+    {
+        try {
+
             $user = new UserDomain();
             $user->setUsername('username');
             $user->setEmail('correo');
@@ -18,22 +31,6 @@ class Usercontroller extends CI_Controller
             throw new Exception($e);
         }
 
-        $this->load->view('welcome_message');
-    }
-
-    public function guardar()
-    {
-        try {
-
-            // $user = new UserDomain();
-            // $user->setUsername('username');
-            // $user->setEmail('correo');
-            // UserWrapper::saveUser($user);
-
-        } catch (Exception $e) {
-            throw new Exception($e);
-        }
-
-        $this->load->view('welcome_message');
+        $this->layout->view('welcome_message');
     }
 }

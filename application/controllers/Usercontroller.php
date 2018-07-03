@@ -14,7 +14,7 @@ class Usercontroller extends CI_Controller
             throw new Exception($e);
         }
 
-        $this->layout->view('welcome_message');
+        $this->layout->view('prueba');
     }
 
     public function guardar()

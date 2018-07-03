@@ -42,23 +42,17 @@
 
 </head>
 
-<body <?= $this->layout->getidObj(); ?> <?= $this->layout->getBodyClass(); ?> >
+<body <?php $this->layout->getidObj(); ?> <?php $this->layout->getBodyClass(); ?> >
 
     <div class="">
-        <?= $this->layout->getNav(); ?>
+        <?php $this->layout->getNav(); ?>
     </div>
 
-    <?php
-    $this->load->view($this->layout->getHeader());
+    <?php //$this->load->view($this->layout->getHeader());?>
 
-    ?>
+    <?php echo $content_for_layout ?>
 
-    <?php $content_for_layout ?>
-
-
-    <?php
-    $this->load->view($this->layout->getFooter());
-    ?>
+    <?php //$this->load->view($this->layout->getFooter());?>
 
 
 
